@@ -1,0 +1,20 @@
+# FrameArt - todas as localizações das imagens ficam neste arquivo.
+# Ele é gerenciado pelo plugin (/img create e /img remove). Se editar à mão, use /img reload.
+#
+# Formato:
+# images:
+#   logo:
+#     source: https://exemplo.com/logo.png   # ou "logo.png" dentro de plugins/FrameArt/images
+#     location:
+#       world: world
+#       x: 10          # bloco da moldura do canto inferior esquerdo
+#       y: 64
+#       z: -5
+#       facing: SOUTH  # para onde a imagem está virada (NORTH, SOUTH, EAST, WEST)
+#     size:
+#       columns: 3
+#       rows: 2
+#     dithering: true
+#     maps: [0, 1, 2, 3, 4, 5]   # IDs dos mapas, linha por linha a partir do topo
+#     created-at: 1759100000000
+images: {}

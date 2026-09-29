@@ -1,0 +1,73 @@
+# ------------------------------------------------------------
+#  FrameArt - imagens em mapas (1.8 -> 26.x)
+#  As localizações das imagens ficam em locations.yml
+# ------------------------------------------------------------
+
+images:
+  # Tamanho máximo em mapas (cada mapa = 1 bloco = 128x128 px).
+  max-columns: 10
+  max-rows: 10
+  # Dithering Floyd-Steinberg: melhor para fotos. Use -nodither para pixel art.
+  dithering: true
+  # Maior dimensão (px) aceita na imagem original, evita "decompression bombs".
+  max-source-dimension: 8192
+  # Distância máxima (blocos) da parede para onde o jogador olha.
+  target-distance: 10
+
+download:
+  timeout-seconds: 10
+  max-size-mb: 10
+  user-agent: "FrameArt/1.0 (Minecraft plugin)"
+  # false = apenas https://
+  allow-http: true
+
+frames:
+  # Molduras invisíveis e fixas (apenas 1.16+; ignorado em versões antigas).
+  invisible: false
+  fixed: true
+  # Impede que jogadores quebrem, girem ou retirem os mapas.
+  protect: true
+
+cache:
+  # Imagens processadas mantidas em memória (LRU).
+  memory-entries: 64
+  # Salva as imagens processadas em plugins/FrameArt/cache para não baixar de novo no boot.
+  disk: true
+
+messages:
+  prefix: "&8[&bFrameArt&8] &7"
+  no-permission: "&cVocê não tem permissão."
+  player-only: "&cApenas jogadores podem usar este comando."
+  look-at-wall: "&cOlhe para uma parede sólida (até a distância configurada)."
+  processing: "Processando a imagem &f{name}&7..."
+  created: "&aImagem &f{name}&a criada com &f{columns}x{rows}&a mapas."
+  removed: "&aImagem &f{name}&a removida."
+  reloaded: "&aConfiguração e locations.yml recarregados."
+  cache-cleared: "&aCache limpo."
+  list-empty: "Nenhuma imagem registrada."
+  list-header: "Imagens (&f{count}&7):"
+  list-entry: " &8- &b{name} &7{columns}x{rows} &8@ &7{location}"
+  info: "&b{name}\n&7Origem: &f{source}\n&7Local: &f{location} &7virada para &f{facing}\n&7Tamanho: &f{columns}x{rows} &7| Dithering: &f{dithering}\n&7Mapas: &f{maps}"
+  help-header: "&b&lFrameArt &7- comandos:"
+  usage:
+    create: " &b/img create <nome> <url|arquivo> [colunas|auto] [linhas|auto] [-dither|-nodither]"
+    remove: " &b/img remove <nome>"
+    list: " &b/img list"
+    info: " &b/img info <nome>"
+    cache: " &b/img cache clear"
+    reload: " &b/img reload"
+  errors:
+    invalid-name: "&cNome inválido &f{detail}&c. Use a-z, 0-9, _ ou - (até 32 caracteres)."
+    name-taken: "&cJá existe uma imagem chamada &f{detail}&c."
+    not-found: "&cImagem &f{detail}&c não encontrada."
+    invalid-source: "&cOrigem inválida ou arquivo inexistente: &f{detail}"
+    source-not-allowed: "&cOrigem não permitida: &f{detail}"
+    fetch-failed: "&cFalha ao baixar a imagem: &f{detail}"
+    invalid-image: "&cArquivo não é uma imagem suportada: &f{detail}"
+    image-too-large: "&cImagem grande demais (limite: &f{detail}&c)."
+    grid-too-large: "&cTamanho acima do limite de &f{detail}&c mapas."
+    world-not-loaded: "&cMundo &f{detail}&c não está carregado."
+    area-obstructed: "&cÁrea ocupada em &f{detail}&c."
+    missing-wall: "&cFalta parede sólida atrás de &f{detail}&c."
+    placement-failed: "&cNão foi possível posicionar as molduras: &f{detail}"
+    unexpected: "&cErro inesperado: &f{detail}"

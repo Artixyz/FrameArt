@@ -1,0 +1,28 @@
+name: FrameArt
+version: '${version}'
+main: dev.frameart.plugin.FrameArtPlugin
+# Ignorado de 1.8 a 1.12; a partir da 1.13 habilita os nomes modernos de Material.
+api-version: '1.13'
+description: Exibe imagens (URL ou arquivo) em mapas dentro de molduras.
+authors: [FrameArt]
+commands:
+  frameart:
+    description: Gerencia imagens em molduras.
+    usage: /<command> help
+    aliases: [img, imagem, image]
+permissions:
+  frameart.*:
+    default: op
+    children:
+      frameart.create: true
+      frameart.remove: true
+      frameart.list: true
+      frameart.admin: true
+  frameart.create:
+    default: op
+  frameart.remove:
+    default: op
+  frameart.list:
+    default: op
+  frameart.admin:
+    default: op
